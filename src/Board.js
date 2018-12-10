@@ -51,17 +51,22 @@ class Board extends Component {
             let targetLocation = Board.parseRowCol(target.id);
             let selectedLocation = Board.parseRowCol(this.state.selectedTile);
 
-            console.log(targetLocation);
-
             let board = this.state.board;
-            board[targetLocation.row][targetLocation.col] = board[selectedLocation.row][selectedLocation.col];
-            board[selectedLocation.row][selectedLocation.col] = '';
 
-            this.setState({
-                selectedTile: null,
-                board: board,
-                rotate: !this.state.rotate,
-            });
+            if (!!board[selectedLocation.row][selectedLocation.col]) {
+                board[targetLocation.row][targetLocation.col] = board[selectedLocation.row][selectedLocation.col];
+                board[selectedLocation.row][selectedLocation.col] = '';
+
+                this.setState({
+                    selectedTile: null,
+                    board: board,
+                    rotate: !this.state.rotate,
+                });
+            } else {
+                this.setState({
+                    selectedTile: null,
+                })
+            }
         } else {
             this.setState({
                 selectedTile: null,
