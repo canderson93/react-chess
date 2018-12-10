@@ -1,0 +1,56 @@
+
+.black {
+    color: #333;
+    text-shadow: 0 0 1px white;
+}
+
+.white {
+    color: white;
+    text-shadow: 0 0 1px black;
+}
+
+.tile {
+    width: 1em;
+    height: 1em;
+
+    padding: 0.2em;
+    line-height: 1em;
+    text-align: center;
+
+    background-color: #ddd;
+}
+
+.row:nth-of-type(even) .tile:nth-of-type(odd),
+.row:nth-of-type(odd) .tile:nth-of-type(even) {
+    background-color: #777;
+}
+
+.selected,
+.row:nth-of-type(even) .tile:nth-of-type(odd).selected,
+.row:nth-of-type(odd) .tile:nth-of-type(even).selected {
+    background-color: #aa0;
+}
+
+.king:after {
+    content: '♚';
+}
+
+.queen:after {
+    content: '♛';
+}
+
+.bishop:after {
+    content: '♝'
+}
+
+.rook:after {
+    content: '♜';
+}
+
+.knight:after {
+    content: '♞';
+}
+
+.pawn:after {
+    content: '♟';
+}

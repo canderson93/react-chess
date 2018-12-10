@@ -1,0 +1,24 @@
+
+.board {
+    transition: transform 2s ease;
+}
+
+.board .row {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+
+    font-size: 2em;
+}
+
+.board .tile {
+    /*transition: transform 1s ease-out;*/
+}
+
+.board.rotate {
+    transform: rotate(180deg);
+}
+
+.board.rotate .tile {
+    transform: rotate(-180deg);
+}
