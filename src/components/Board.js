@@ -1,0 +1,64 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import Tile from './Tile';
+import '../styles/Board.css';
+
+class Board extends Component {
+    // constructor(props) {
+    //     super(props);
+    //
+    //     this.state = {
+    //         selectedTile: null,
+    //         board: props.board,
+    //         rotate: false,
+    //     };
+    // }
+
+    drawBoard() {
+        //Iterate over A->H to identify tiles (using ASCII char codes)
+        let charCode = 'A'.charCodeAt(0);
+        return this.props.board.map((row) => {
+            let output = [];
+            let counter = 0;
+
+            let tiles = row.map((tile) => {
+                let key = String.fromCharCode(charCode) + counter;
+                counter += 1;
+
+                return <Tile id={key} key={key} tile={tile} />;
+            });
+
+            output.push(<div key={String.fromCharCode(charCode)} className="row">{tiles}</div>);
+
+            charCode += 1;
+            return output;
+        });
+    }
+
+    static parseRowCol(token) {
+        let row = token.charCodeAt(0) - 'A'.charCodeAt(0);
+        let col = parseInt(token.charAt(1));
+
+        return {row, col};
+    }
+
+    render() {
+        console.log(this.props);
+        return (
+            <div className={`board`}>
+                {this.drawBoard.apply(this)}
+            </div>
+        )
+
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        selectedTile: state.selectedTile,
+        board: state.board
+    }
+}
+
+export default connect(mapStateToProps)(Board);

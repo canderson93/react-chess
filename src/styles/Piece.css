@@ -31,6 +31,12 @@
     background-color: #aa0;
 }
 
+.legal,
+.row:nth-of-type(even) .tile:nth-of-type(odd).legal,
+.row:nth-of-type(odd) .tile:nth-of-type(even).legal {
+    background-color: #0aa;
+}
+
 .king:after {
     content: '♚';
 }
