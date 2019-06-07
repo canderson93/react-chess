@@ -1,13 +1,13 @@
 {
-  "main.css": "/react-chess/static/css/main.cde089fb.chunk.css",
-  "main.js": "/react-chess/static/js/main.e6331e4d.chunk.js",
-  "main.js.map": "/react-chess/static/js/main.e6331e4d.chunk.js.map",
-  "static/js/1.4d4949a9.chunk.js": "/react-chess/static/js/1.4d4949a9.chunk.js",
-  "static/js/1.4d4949a9.chunk.js.map": "/react-chess/static/js/1.4d4949a9.chunk.js.map",
+  "main.css": "/react-chess/static/css/main.a6ead487.chunk.css",
+  "main.js": "/react-chess/static/js/main.2b60214a.chunk.js",
+  "main.js.map": "/react-chess/static/js/main.2b60214a.chunk.js.map",
+  "static/js/1.93e434aa.chunk.js": "/react-chess/static/js/1.93e434aa.chunk.js",
+  "static/js/1.93e434aa.chunk.js.map": "/react-chess/static/js/1.93e434aa.chunk.js.map",
   "runtime~main.js": "/react-chess/static/js/runtime~main.65c39bb5.js",
   "runtime~main.js.map": "/react-chess/static/js/runtime~main.65c39bb5.js.map",
-  "static/css/main.cde089fb.chunk.css.map": "/react-chess/static/css/main.cde089fb.chunk.css.map",
+  "static/css/main.a6ead487.chunk.css.map": "/react-chess/static/css/main.a6ead487.chunk.css.map",
   "index.html": "/react-chess/index.html",
-  "precache-manifest.7e4398e90afe172972813a36ecacd219.js": "/react-chess/precache-manifest.7e4398e90afe172972813a36ecacd219.js",
+  "precache-manifest.f1818f47b2f6a86688deb56b8f342803.js": "/react-chess/precache-manifest.f1818f47b2f6a86688deb56b8f342803.js",
   "service-worker.js": "/react-chess/service-worker.js"
 }
