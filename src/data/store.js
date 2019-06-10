@@ -28,11 +28,8 @@ const store = createStore(function (state = defaultState, action) {
         return state;
     }
 
-    let oldState = state;
     state = Object.assign({}, state);
 
-    console.log(state);
-    console.log(action);
     switch (action.type) {
         case 'SELECT_PIECE':
             state = Object.assign(state, {

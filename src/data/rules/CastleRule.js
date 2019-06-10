@@ -21,9 +21,11 @@ class CastleRule extends GameRule {
         const rookTo = action.rookTile;
 
         kingTo.piece = action.piece;
+        kingTo.piece.tile = kingTo;
         kingFrom.piece = null;
 
         rookTo.piece = rookFrom.piece;
+        rookTo.piece.tile = rookTo;
         rookFrom.piece = null;
 
         return state;

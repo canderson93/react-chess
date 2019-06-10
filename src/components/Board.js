@@ -5,15 +5,6 @@ import Tile from './Tile';
 import '../styles/Board.css';
 
 class Board extends Component {
-    // constructor(props) {
-    //     super(props);
-    //
-    //     this.state = {
-    //         selectedTile: null,
-    //         board: props.board,
-    //         rotate: false,
-    //     };
-    // }
 
     drawBoard() {
         //Iterate over A->H to identify tiles (using ASCII char codes)
@@ -45,7 +36,7 @@ class Board extends Component {
 
     render() {
         return (
-            <div className={`board`}>
+            <div className={`board ${this.props.player} ${this.props.history.length ? 'playing': ''}`}>
                 {this.props.winner ? this.props.message : ''}
                 {this.drawBoard.apply(this)}
             </div>
@@ -58,8 +49,10 @@ function mapStateToProps(state) {
     return {
         winner: state.winner,
         message: state.message,
+        player: state.player,
         selectedTile: state.selectedTile,
-        board: state.board
+        board: state.board,
+        history: state.history
     }
 }
 

@@ -1,6 +1,6 @@
 
 .board {
-    transition: transform 2s ease;
+    transition: transform 2s cubic-bezier(.27,.91,.44,1);
 }
 
 .board .row {
@@ -11,14 +11,11 @@
     font-size: 2em;
 }
 
-.board .tile {
-    /*transition: transform 1s ease-out;*/
+.board.black {
+    transform: translate3d(0,0,0) rotate(180deg);
+    animation: fade-out-in 2s cubic-bezier(.27,.91,.44,1);
 }
 
-.board.rotate {
-    transform: rotate(180deg);
-}
-
-.board.rotate .tile {
-    transform: rotate(-180deg);
+.board.black .tile {
+    transform: translate3d(0,0,0) rotate(-180deg);
 }

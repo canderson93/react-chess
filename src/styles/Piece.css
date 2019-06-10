@@ -10,6 +10,7 @@
 }
 
 .tile {
+    position: relative;
     width: 1em;
     height: 1em;
 
@@ -20,21 +21,40 @@
     background-color: #ddd;
 }
 
+.tile:after {
+    position: relative;
+    z-index: 1;
+}
+
 .row:nth-of-type(even) .tile:nth-of-type(odd),
 .row:nth-of-type(odd) .tile:nth-of-type(even) {
     background-color: #777;
 }
 
-.selected,
-.row:nth-of-type(even) .tile:nth-of-type(odd).selected,
-.row:nth-of-type(odd) .tile:nth-of-type(even).selected {
+.selected:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    opacity: 0.5;
     background-color: #aa0;
+    z-index: 0;
 }
 
-.legal,
-.row:nth-of-type(even) .tile:nth-of-type(odd).legal,
-.row:nth-of-type(odd) .tile:nth-of-type(even).legal {
+.legal:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    opacity: 0.5;
     background-color: #0aa;
+    z-index: 0;
 }
 
 .king:after {
@@ -46,7 +66,7 @@
 }
 
 .bishop:after {
-    content: '♝'
+    content: '♝';
 }
 
 .rook:after {

@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import '../styles/Piece.css';
 
 class Tile extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   static parsePlayer(token) {
     if (typeof(token) !== 'string' && token.length !== 2) { return null; }
