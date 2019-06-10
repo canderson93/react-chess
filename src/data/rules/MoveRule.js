@@ -22,6 +22,7 @@ class MoveRule extends GameRule {
 
         from.piece = null;
         to.piece = action.piece;
+        action.piece.tile = to;
 
         return state;
     }
@@ -40,7 +41,8 @@ class MoveRule extends GameRule {
                 let attackAction = {
                     type: 'ATTACK_PIECE',
                     piece: piece,
-                    tile: currentTile
+                    tile: currentTile,
+                    action: false
                 };
                 currentTile.actions.push(attackAction);
                 piece.actions.push(attackAction);
@@ -50,14 +52,42 @@ class MoveRule extends GameRule {
                 let moveAction = {
                     type: 'MOVE_PIECE',
                     piece: piece,
-                    tile: currentTile
+                    tile: currentTile,
+                    action: true
                 };
 
                 currentTile.actions.push(moveAction);
                 piece.actions.push(moveAction);
 
-                if (currentTile.piece && currentTile.piece.player !== piece.player) break;
-                if (!this.repeat) break;
+                if (!this.repeat) { break; }
+                if (currentTile.piece && currentTile.piece.player !== piece.player) {
+                    x += move.x;
+                    y += move.y;
+                    currentTile = state.board.getTile(x, y);
+
+                    // Once we've calculated what tiles a piece is attacking, and the available moves
+                    // we run the calculations further to see what pieces the tile *would* attack
+                    // if an attacked piece moved out of the way (used in check calculations)
+                    while (currentTile !== null) {
+                        if (currentTile.piece && currentTile.piece.player === piece.player) break;
+
+                        let pinnedAction = {
+                            type: 'ATTACK_PINNED',
+                            piece: piece,
+                            tile: currentTile,
+                            action: false
+                        };
+                        currentTile.actions.push(pinnedAction);
+                        piece.actions.push(pinnedAction);
+
+                        if (currentTile.piece && currentTile.piece.player !== piece.player) break;
+
+                        x += move.x;
+                        y += move.y;
+                        currentTile = state.board.getTile(x, y);
+                    }
+                    break;
+                }
 
                 x += move.x;
                 y += move.y;

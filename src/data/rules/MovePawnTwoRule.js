@@ -29,7 +29,8 @@ class MovePawnTwoRule extends GameRule {
         let moveAction = {
             type: 'MOVE_PIECE',
             piece: piece,
-            tile: currentTile
+            tile: currentTile,
+            action: true
         };
 
         currentTile.actions.push(moveAction);

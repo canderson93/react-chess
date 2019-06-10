@@ -44,9 +44,9 @@ class Board extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className={`board`}>
+                {this.props.winner ? this.props.message : ''}
                 {this.drawBoard.apply(this)}
             </div>
         )
@@ -56,6 +56,8 @@ class Board extends Component {
 
 function mapStateToProps(state) {
     return {
+        winner: state.winner,
+        message: state.message,
         selectedTile: state.selectedTile,
         board: state.board
     }

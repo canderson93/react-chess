@@ -80,7 +80,8 @@ class CastleRule extends GameRule {
                 piece: king.piece,
                 rook: rook,
                 rookTile: state.board.getTile(king.x + direction, king.y),
-                tile: castleTile
+                tile: castleTile,
+                action: true
             };
 
             castleTile.actions.push(action);

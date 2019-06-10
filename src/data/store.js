@@ -16,7 +16,7 @@ const board = `
 
 const defaultState = {
     winner: false,
-    rejected: false,
+    message: '',
     player: 'white',
     selectedTile: null,
     board: Board.parseBoard(board),
@@ -48,15 +48,8 @@ const store = createStore(function (state = defaultState, action) {
 
             // Execute the action
             GameRules.forEach(rule => state = rule.execute(state, action));
-            GameRules.forEach(rule => state = rule.afterMove(state));
 
-            // Check whether the new game state has been rejected by a game rule during the afterMove step
-            // and needs to be aborted
-            if (state.rejected) {
-                return oldState;
-            }
-
-            if (action.tile) {
+            if (action.tile && action.action) {
                 state.history.push({
                     from: {x: state.selectedTile.x, y: state.selectedTile.y},
                     to: {x: action.tile.x, y: action.tile.y}
@@ -72,7 +65,7 @@ const store = createStore(function (state = defaultState, action) {
 
             GameRules.forEach(rule => state = rule.atTurnStart(state));
             GameRules.forEach(rule => state = rule.beforeMove(state));
-
+            GameRules.forEach(rule => state = rule.stateCheck(state));
             state.board = state.board.toStore();
             return state;
     }

@@ -8,6 +8,12 @@ import MoveQueenRule from './rules/MoveQueenRule';
 import MoveRookRule from './rules/MoveRookRule';
 
 import CastleRule from './rules/CastleRule';
+import MustBlockCheckRule from './rules/MustBlockCheckRule';
+import KingMoveToCheckRule from './rules/KingMoveToCheckRule';
+import PinnedPieceCheckRule from './rules/PinnedPieceCheckRule';
+
+import CheckmateRule from './rules/CheckmateRule';
+import NoMoveStalemateRule from './rules/NoMoveStatelmateRule';
 
 const GameRules = [
     MoveBishopRule,
@@ -17,7 +23,12 @@ const GameRules = [
     MovePawnTwoRule,
     MoveQueenRule,
     MoveRookRule,
-    CastleRule
+    CastleRule,
+    PinnedPieceCheckRule,
+    MustBlockCheckRule,
+    KingMoveToCheckRule,
+    CheckmateRule,
+    NoMoveStalemateRule
 ];
 
 export {
@@ -29,5 +40,10 @@ export {
     MovePawnTwoRule,
     MoveQueenRule,
     MoveRookRule,
-    CastleRule
+    CastleRule,
+    PinnedPieceCheckRule,
+    MustBlockCheckRule,
+    KingMoveToCheckRule,
+    CheckmateRule,
+    NoMoveStalemateRule
 };

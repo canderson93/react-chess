@@ -60,7 +60,7 @@ class Tile extends Component {
 
         // Filter out actions on this tile that don't involve the correct piece
         let actions = piece.actions.filter(action => {
-            return action.tile === this.props.tile && action.type !== 'ATTACK_PIECE'
+            return action.tile === this.props.tile && action.action === true
         });
 
         actions.forEach((action) => {
@@ -83,8 +83,6 @@ class Tile extends Component {
               return action.piece === selectedTile.piece && action.type !== 'ATTACK_PIECE'
           });
 
-          console.log(this.props.tile.actions);
-          console.log(actions);
           actions.forEach((action) => {
               this.props.dispatch(action)
           });

@@ -47,18 +47,26 @@ class Board {
         return tiles;
     }
 
-    getAllPiecesOfType(piece) {
+    getAllPieces() {
         const pieces = [];
 
         this.board.forEach(row => {
             row.forEach(tile => {
-                if (tile.piece && tile.piece.type === piece) {
+                if (tile.piece) {
                     pieces.push(tile);
                 }
             })
         });
 
         return pieces;
+    }
+
+    getAllPiecesOfType(piece) {
+        return this.getAllPieces().filter((tile) => tile.piece.type === piece);
+    }
+
+    getPlayerPieces(player) {
+        return this.getAllPieces().filter((tile) => tile.piece.player === player);
     }
 
     clearState() {
@@ -92,15 +100,22 @@ class Board {
                 if (token) {
                     piece = {
                         player: this.parsePlayer(token),
-                        type: this.parsePiece(token)
+                        type: this.parsePiece(token),
                     }
                 }
 
-                return {
+                let tileObject = {
                     x: xIndex,
                     y: yIndex,
                     piece: piece
                 };
+
+                // set up two-way reference between piece and tile
+                if (piece) {
+                    piece.tile = tileObject;
+                }
+
+                return tileObject;
             });
 
             parsedBoard.push(tiles)

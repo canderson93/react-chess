@@ -16,7 +16,8 @@ class MovePawnRule extends MoveRule {
             let action = {
                 type: 'MOVE_PIECE',
                 piece: piece,
-                tile: currentTile
+                tile: currentTile,
+                action: true
             };
             currentTile.actions.push(action);
             piece.actions.push(action);
@@ -35,7 +36,8 @@ class MovePawnRule extends MoveRule {
                 let attackAction = {
                     type: 'ATTACK_PIECE',
                     piece: piece,
-                    tile: currentTile
+                    tile: currentTile,
+                    action: false
                 };
                 currentTile.actions.push(attackAction);
                 piece.actions.push(attackAction);
@@ -44,7 +46,8 @@ class MovePawnRule extends MoveRule {
                     let moveAction = {
                         type: 'MOVE_PIECE',
                         piece: piece,
-                        tile: currentTile
+                        tile: currentTile,
+                        action: true
                     };
 
                     currentTile.actions.push(moveAction);
