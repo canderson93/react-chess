@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/react-chess/static/js/runtime~main.65c39bb5.js"
   },
   {
-    "revision": "2b60214a4806ea73c196",
-    "url": "/react-chess/static/js/main.2b60214a.chunk.js"
+    "revision": "7b122c4c967f4b46c4f6",
+    "url": "/react-chess/static/js/main.7b122c4c.chunk.js"
   },
   {
     "revision": "93e434aa49210f9fe9c5",
     "url": "/react-chess/static/js/1.93e434aa.chunk.js"
   },
   {
-    "revision": "2b60214a4806ea73c196",
-    "url": "/react-chess/static/css/main.a6ead487.chunk.css"
+    "revision": "7b122c4c967f4b46c4f6",
+    "url": "/react-chess/static/css/main.27e24e74.chunk.css"
   },
   {
-    "revision": "c099db5d182b150896660d9fdd98813b",
+    "revision": "57118c366c59747e3b108be15b73a398",
     "url": "/react-chess/index.html"
   }
 ];
