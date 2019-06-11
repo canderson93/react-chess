@@ -57,26 +57,26 @@
     z-index: 0;
 }
 
-.king:after {
-    content: '♚';
-}
+/*.king:after {*/
+    /*content: '♚';*/
+/*}*/
 
-.queen:after {
-    content: '♛';
-}
+/*.queen:after {*/
+    /*content: '♛';*/
+/*}*/
 
-.bishop:after {
-    content: '♝';
-}
+/*.bishop:after {*/
+    /*content: '♝';*/
+/*}*/
 
-.rook:after {
-    content: '♜';
-}
+/*.rook:after {*/
+    /*content: '♜';*/
+/*}*/
 
-.knight:after {
-    content: '♞';
-}
+/*.knight:after {*/
+    /*content: '♞';*/
+/*}*/
 
-.pawn:after {
-    content: '♙';
-}
+/*.pawn:after {*/
+    /*content: '♙';*/
+/*}*/

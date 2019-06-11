@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faChessKing, faChessRook, faChessBishop, faChessKnight, faChessPawn, faChessQueen } from '@fortawesome/free-solid-svg-icons';
+
 import '../styles/Piece.css';
+
+library.add(faChessKing, faChessRook, faChessBishop, faChessKnight, faChessPawn, faChessQueen);
 
 class Tile extends Component {
 
@@ -43,7 +49,7 @@ class Tile extends Component {
       let piece = this.props.tile.piece;
       let player = piece ? piece.player : '';
 
-      return player && piece ? `${player} ${piece.type}` : '';
+      return player && piece ? {player, piece: piece.type} : null;
   }
 
     /**
@@ -100,12 +106,17 @@ class Tile extends Component {
           selected = this.props.selectedTile.x === this.props.tile.x && this.props.selectedTile.y === this.props.tile.y;
       }
 
+      let piece = this.getPiece();
+      let pieceClass = piece ? `${piece.player} ${piece.piece}` : '';
+
     return (
       <div id={this.props.id}
            data-x={this.props.tile.x}
            data-y={this.props.tile.y}
-           className={`tile ${this.getPiece()} ${selected ? 'selected' : ''} ${legal ? 'legal' : ''}`}
-           onClick={this.handleClick.bind(this)} />
+           className={`tile ${pieceClass} ${selected ? 'selected' : ''} ${legal ? 'legal' : ''}`}
+           onClick={this.handleClick.bind(this)}>
+          {piece ? (<FontAwesomeIcon icon={`chess-${piece.piece}`}/>) : ''}
+      </div>
     );
   }
 }
