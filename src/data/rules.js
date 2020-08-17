@@ -11,6 +11,7 @@ import CastleRule from './rules/CastleRule';
 import MustBlockCheckRule from './rules/MustBlockCheckRule';
 import KingMoveToCheckRule from './rules/KingMoveToCheckRule';
 import PinnedPieceCheckRule from './rules/PinnedPieceCheckRule';
+import EnPassantRule from './rules/EnPassantRule';
 
 import CheckmateRule from './rules/CheckmateRule';
 import NoMoveStalemateRule from './rules/NoMoveStatelmateRule';
@@ -25,10 +26,11 @@ const GameRules = [
     MoveRookRule,
     CastleRule,
     PinnedPieceCheckRule,
+    EnPassantRule,
     MustBlockCheckRule,
     KingMoveToCheckRule,
     CheckmateRule,
-    NoMoveStalemateRule
+    NoMoveStalemateRule,
 ];
 
 export {
@@ -42,8 +44,9 @@ export {
     MoveRookRule,
     CastleRule,
     PinnedPieceCheckRule,
+    EnPassantRule,
     MustBlockCheckRule,
     KingMoveToCheckRule,
     CheckmateRule,
-    NoMoveStalemateRule
+    NoMoveStalemateRule,
 };
